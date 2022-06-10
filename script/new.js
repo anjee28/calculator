@@ -69,7 +69,7 @@ document.getElementById('plus').addEventListener('click', add);
 
 function add() {
     input1Arr = [];
-
+    eval = 1;
     if (input2 === "") {
         disp.innerHTML = input2;
         input2 = input1;
@@ -82,7 +82,7 @@ function add() {
 function sum() {
     input2 = parseFloat(input1) + parseFloat(input2);
     disp.innerHTML = input2;
-    eval = 1;
+    
 }
 
 //Subtraction
@@ -165,4 +165,25 @@ function qout() {
         disp.innerHTML = input2;
     }
     eval = 4;
+}
+
+document.getElementById('operate').addEventListener('click', evaluate);
+
+function evaluate() {
+    switch (eval) {
+        case 1:
+            sum();
+            break;
+        case 2:
+            diff();
+            break;
+        case 3:
+            prod();
+            break;
+        case 4:
+            divd();
+            break
+        default:
+            break;
+    }
 }
