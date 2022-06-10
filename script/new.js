@@ -1,6 +1,7 @@
+
+//Global Variables
 let input1 = 0;
 let input2 = 0;
-
 let input1Arr = [];
 
 var btnNum = document.querySelectorAll('.btnNum');
@@ -10,7 +11,7 @@ const disp = document.getElementById('display');
 btnNum.forEach((button) => {
  
     button.addEventListener('click', () => {
-        if(input1Arr.length >= 10){
+        if (input1Arr.length >= 10){
             return;
         } 
         else {
@@ -22,6 +23,8 @@ btnNum.forEach((button) => {
     });
 });
 
+
+//Backspace functionality
 document.getElementById('backspace').addEventListener('click', () => {
 
     input1Arr.pop();
@@ -35,3 +38,18 @@ document.getElementById('backspace').addEventListener('click', () => {
     console.log(input1);
     disp.innerHTML = input1;
 })
+
+document.getElementById('plus').addEventListener('click', add);
+
+function add() {
+    input1Arr = [];
+
+    if (input2 === 0) {
+        disp.innerHTML = input2;
+        input2 = input1 + input2;
+    }
+    else {
+        input2 = input1 + input2;
+        disp.innerHTML = input2;
+    }
+}
