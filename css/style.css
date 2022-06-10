@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Technology';
+    src: url(./fonts/Technology.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -44,9 +49,9 @@ div {
     box-sizing: border-box;
     border: 1px solid grey;
     font-size: 32px;
+    font-family: "Technology";
     text-align: right;
     overflow: hidden;
-
 }
 
 .buttons {

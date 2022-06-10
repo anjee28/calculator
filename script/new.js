@@ -23,7 +23,6 @@ btnNum.forEach((button) => {
     });
 });
 
-
 //Backspace functionality
 document.getElementById('backspace').addEventListener('click', () => {
 
@@ -39,6 +38,13 @@ document.getElementById('backspace').addEventListener('click', () => {
     disp.innerHTML = input1;
 })
 
+document.getElementById('clear').addEventListener('click', () => {
+
+    input1Arr = [];
+    input1 = 0;
+    input2 = "";
+    disp.innerHTML = "";
+})
 
 //Addition
 document.getElementById('plus').addEventListener('click', add);
@@ -72,12 +78,12 @@ function subt() {
     }
     else {
         diff();
-        disp.innerHTML = input2;
     }
 }
 
 function diff() {
     input2 = input2 - input1;
+    disp.innerHTML = input2;
 }
 
 //Multiplication
@@ -92,12 +98,22 @@ function mult() {
     }
     else {
         prod();
-        disp.innerHTML = input2;
     }
 }
 
 function prod() {
     input2 = input2 * input1;
+
+    if(input2 > 9999999999) {
+        disp.innerHTML = "OVERFLOW!";
+        input1Arr = [];
+        input1 = 0;
+        input2 = "";
+    }
+    else {
+        disp.innerHTML = input2;
+    }
+    
 }
 
 //division
@@ -124,6 +140,7 @@ function qout() {
     }
     else {
         input2 = input2 / input1;
+        input2 = parseFloat(input2.toFixed(3));
         disp.innerHTML = input2;
     }
     
