@@ -1,7 +1,7 @@
 
 //Global Variables
 let input1 = 0;
-let input2 = 0;
+let input2 = "";
 let input1Arr = [];
 
 var btnNum = document.querySelectorAll('.btnNum');
@@ -39,6 +39,8 @@ document.getElementById('backspace').addEventListener('click', () => {
     disp.innerHTML = input1;
 })
 
+
+//Addition
 document.getElementById('plus').addEventListener('click', add);
 
 function add() {
@@ -46,10 +48,34 @@ function add() {
 
     if (input2 === 0) {
         disp.innerHTML = input2;
-        input2 = input1 + input2;
+        sum();
     }
     else {
-        input2 = input1 + input2;
+        sum();
         disp.innerHTML = input2;
     }
+}
+
+function sum() {
+    input2 = input1 + input2;
+}
+
+//Subtraction
+document.getElementById('subt').addEventListener('click', subt);
+
+function subt() {
+    input1Arr = [];
+
+    if (input2 === "") {
+        disp.innerHTML = input2;
+        input2 = input1;
+    }
+    else {
+        diff();
+        disp.innerHTML = input2;
+    }
+}
+
+function diff() {
+    input2 = input2 - input1;
 }
