@@ -3,6 +3,9 @@
 let input1 = 0;
 let input2 = "";
 let input1Arr = [];
+let memory = 0;
+
+let eval = 0; //1=add, 2=subt, 3=mult, 4=divd
 
 var btnNum = document.querySelectorAll('.btnNum');
 const disp = document.getElementById('display');
@@ -38,6 +41,7 @@ document.getElementById('backspace').addEventListener('click', () => {
     disp.innerHTML = input1;
 })
 
+//Clear Button
 document.getElementById('clear').addEventListener('click', () => {
 
     input1Arr = [];
@@ -46,24 +50,39 @@ document.getElementById('clear').addEventListener('click', () => {
     disp.innerHTML = "";
 })
 
+//Memory Button
+document.getElementById('memory').addEventListener('click', () => {
+    memory = input1;
+    input1Arr = [];
+    input1 = 0;
+    input2 = "";
+})
+
+//Memory Recall
+document.getElementById('memRec').addEventListener('click', () => {
+    input1 = memory;
+    disp.innerHTML = input1;
+})
+
 //Addition
 document.getElementById('plus').addEventListener('click', add);
 
 function add() {
     input1Arr = [];
 
-    if (input2 === 0) {
+    if (input2 === "") {
         disp.innerHTML = input2;
-        sum();
+        input2 = input1;
     }
     else {
-        sum();
-        disp.innerHTML = input2;
+        sum();        
     }
 }
 
 function sum() {
-    input2 = input1 + input2;
+    input2 = parseFloat(input1) + parseFloat(input2);
+    disp.innerHTML = input2;
+    eval = 1;
 }
 
 //Subtraction
@@ -84,6 +103,7 @@ function subt() {
 function diff() {
     input2 = input2 - input1;
     disp.innerHTML = input2;
+    eval = 2;
 }
 
 //Multiplication
@@ -113,7 +133,8 @@ function prod() {
     else {
         disp.innerHTML = input2;
     }
-    
+
+    eval = 3;    
 }
 
 //division
@@ -143,5 +164,5 @@ function qout() {
         input2 = parseFloat(input2.toFixed(3));
         disp.innerHTML = input2;
     }
-    
+    eval = 4;
 }
