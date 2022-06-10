@@ -79,3 +79,23 @@ function subt() {
 function diff() {
     input2 = input2 - input1;
 }
+
+//Multiplication
+document.getElementById('mult').addEventListener('click', mult);
+
+function mult() {
+    input1Arr = [];
+
+    if (input2 === "") {
+        disp.innerHTML = input2;
+        input2 = input1;
+    }
+    else {
+        prod();
+        disp.innerHTML = input2;
+    }
+}
+
+function prod() {
+    input2 = input2 * input1;
+}
