@@ -99,3 +99,32 @@ function mult() {
 function prod() {
     input2 = input2 * input1;
 }
+
+//division
+document.getElementById('divd').addEventListener('click', divd);
+
+function divd() {
+    input1Arr = [];
+
+    if (input2 === "") {
+        disp.innerHTML = input2;
+        input2 = input1;
+    }
+    else {
+        qout(); 
+    }
+}
+
+function qout() {
+    if (input1 === 0){
+        disp.innerHTML = "ERROR!";
+        input1Arr = [];
+        input1 = 0;
+        input2 = "";
+    }
+    else {
+        input2 = input2 / input1;
+        disp.innerHTML = input2;
+    }
+    
+}
